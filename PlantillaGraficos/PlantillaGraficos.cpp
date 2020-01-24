@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #define GLEW_STATIC
 
@@ -12,7 +13,7 @@
 #include <iostream>
 
 using namespace std;
-
+ 
 void dibujarPoligono()
 {
 	glBegin(GL_POLYGON);
@@ -84,8 +85,9 @@ void dibujarTriangulos()
 
 void dibujarCasa()
 {
+	//Techo
 	glBegin(GL_TRIANGLES);
-	glColor3f(0.5f, 0.2f, 0.0f);
+	glColor3f(0.4f, 0.2f, 0.0f);
 
 	glVertex3f(0.0f, 0.5f, 0.0f);
 	glVertex3f(-0.5f, 0.0f, 0.0f);
@@ -93,17 +95,55 @@ void dibujarCasa()
 
 	glEnd();
 
-	glBegin(GL_QUADS);
-	glColor3f(0.0f, 0.4f, 0.0f);
-
-	glVertex3f(2.0f, -0.7f, 0.0f);
-	glVertex3f(2.0f, -1.0f, 0.0f);
-	glVertex3f(-1.6f, -0.7f, 0.0f);
-	glVertex3f(-1.6f, -1.0f, 0.0f);
+	//Cesped
+	glBegin(GL_TRIANGLES);		
+	glColor3f(0.0f, 1.0f, 0.0f);
 	
+	glVertex3f(-1.0f, -0.6f, 0.0f);
+	glVertex3f(1.0f, -0.6f, 0.0f);
+	glVertex3f(-1.0f, -1.0f, 0.0f);
+
+	glVertex3f(-1.0f, -1.0f, 0.0f);
+	glVertex3f(1.0f, -1.0f, 0.0f);
+	glVertex3f(1.0f, -0.6f, 0.0f);
+
 	glEnd();
 
+	//Casa
+	glBegin(GL_TRIANGLES);
+	glColor3f(0.5, 0.2f, 0.0f);
+	glVertex3f(0.4f, 0.0f, 0.0f);
+	glVertex3f(-0.4f, -0.7f, 0.0f);
+	glVertex3f(0.4f, -0.7f, 0.0f);
 
+	glVertex3f(0.4f, 0.0f, 0.0f);
+	glVertex3f(-0.4f, -0.7f, 0.0f);
+	glVertex3f(-0.4f, 0.0f, 0.0f);
+
+	//Ventana
+	glBegin(GL_TRIANGLES);
+	glColor3f(0.0, 0.0f, 0.2f);
+	glVertex3f(0.2f, 0.0f, 0.0f);
+	glVertex3f(-0.2f, -0.7f, 0.0f);
+	glVertex3f(0.2f, -0.7f, 0.0f);
+
+	glVertex3f(0.2f, 0.0f, 0.0f);
+	glVertex3f(-0.2f, -0.7f, 0.0f);
+	glVertex3f(-0.2f, 0.0f, 0.0f);
+
+	glEnd();
+
+	//dividir entre 255 para el color
+	glEnd();
+
+	/*glBegin(GL_POLYGON);
+	//hacer con coseno y un ciclo for
+	glColor3f(0.0f, 0.2f, 0.0f);
+	for(double i=0; i<360.0; i +=5.0)
+	{
+		glVertex3f((0.5 *cos(i * 3.14159 / 180.0)) - 0.6, (0.1 * sin(i * 3.14159 / 180.0)) + 0.4, 0.0f);
+	}
+	glEnd();*/
 }
 
 void dibujar()
@@ -122,7 +162,7 @@ int main()
 		exit(EXIT_FAILURE);
 	}
 	//Si se pudo iniciar GLFW, inicializamos la ventana
-	window = glfwCreateWindow(800, 600, "Ventana", NULL, NULL);
+	window = glfwCreateWindow(600, 600, "Ventana", NULL, NULL);
 	//Si no se pudo crear la ventana, terminamos la ejecucion
 	if (!window)
 	{
