@@ -111,7 +111,7 @@ void dibujarCasa()
 
 	//Casa
 	glBegin(GL_TRIANGLES);
-	glColor3f(0.5, 0.2f, 0.0f);
+	glColor3f(0.84f, 0.47f, 0.28f);
 	glVertex3f(0.4f, 0.0f, 0.0f);
 	glVertex3f(-0.4f, -0.7f, 0.0f);
 	glVertex3f(0.4f, -0.7f, 0.0f);
@@ -120,20 +120,44 @@ void dibujarCasa()
 	glVertex3f(-0.4f, -0.7f, 0.0f);
 	glVertex3f(-0.4f, 0.0f, 0.0f);
 
-	//Ventana
+	//Puerta
 	glBegin(GL_TRIANGLES);
-	glColor3f(0.0, 0.0f, 0.2f);
-	glVertex3f(0.2f, 0.0f, 0.0f);
-	glVertex3f(-0.2f, -0.7f, 0.0f);
+	glColor3f(0.45f, 0.31f, 0.22f);
+	glVertex3f(0.2f, -0.3f, 0.0f);
+	glVertex3f(-0.1f, -0.7f, 0.0f);
 	glVertex3f(0.2f, -0.7f, 0.0f);
 
-	glVertex3f(0.2f, 0.0f, 0.0f);
-	glVertex3f(-0.2f, -0.7f, 0.0f);
-	glVertex3f(-0.2f, 0.0f, 0.0f);
+	glVertex3f(0.2f, -0.3f, 0.0f);
+	glVertex3f(-0.1f, -0.7f, 0.0f);
+	glVertex3f(-0.1f, -0.3f, 0.0f);
 
 	glEnd();
 
+	//Ventana
+	glBegin(GL_TRIANGLES);
+	glColor3f(0.69f, 0.97f, 0.96f);
+	glVertex3f(0.4f, 0.0f, 0.0f);
+	glVertex3f(0.2f, -0.2f, 0.0f);
+	glVertex3f(0.4f, -0.2f, 0.0f);
+
+	glVertex3f(0.4f, 0.0f, 0.0f);
+	glVertex3f(0.2f, -0.2f, 0.0f);
+	glVertex3f(0.2f, 0.0f, 0.0f);
+
 	//dividir entre 255 para el color
+	glEnd();
+
+	//Tronco
+	glBegin(GL_TRIANGLES);
+	glColor3f(0.61f, 0.50f, 0.33f);
+	glVertex3f(-0.8f, -0.3f, 0.0f);
+	glVertex3f(-0.7f, -0.7f, 0.0f);
+	glVertex3f(-0.8f, -0.7f, 0.0f);
+
+	glVertex3f(-0.8f, -0.3f, 0.0f);
+	glVertex3f(-0.7f, -0.7f, 0.0f);
+	glVertex3f(-0.7f, -0.3f, 0.0f);
+
 	glEnd();
 
 	/*glBegin(GL_POLYGON);
